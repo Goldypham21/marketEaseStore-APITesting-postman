@@ -1,0 +1,508 @@
+{
+	"info": {
+		"_postman_id": "7c99e236-addf-4555-8853-14329bb62c18",
+		"name": "Market Ease Store - API Testing",
+		"description": "---\n\n# 🛒 MarketEase Store API Testing (Postman Project)\n\n## 📘 Overview\n\nThis project focuses on **API testing** for the **MarketEase Store API**, which simulates a grocery store system allowing customers to browse products, manage carts, and place orders.  \n  \nAll tests were executed using **Postman** and organized into a Postman collection for better structure and reusability.\n\n---\n\n## 🌐 Base URL\n\n`https://simple-grocery-store-api.click`\n\n---\n\n## 📌 API Modules Tested\n\nThe project includes **manual test cases** and **Postman requests** covering the following main modules:\n\n### 1\\. Status\n\n- `GET /status` – Verify that the API is up and running.\n    \n\n### 2\\. Products\n\n- `GET /products` – Retrieve all products.\n    \n- `GET /products/:productId` – Retrieve product details by ID.\n    \n\n### 3\\. Cart\n\n- `GET /carts/:cartId` – View a cart.\n    \n- `GET /carts/:cartId/items` – Retrieve all items in a cart.\n    \n- `POST /carts` – Create a new cart.\n    \n- `POST /carts/:cartId/items` – Add an item to a cart.\n    \n- `PATCH /carts/:cartId/items/:itemId` – Modify the quantity of an item.\n    \n- `PUT /carts/:cartId/items/:itemId` – Replace an item in a cart.\n    \n- `DELETE /carts/:cartId/items/:itemId` – Remove an item from a cart.\n    \n\n### 4\\. Orders\n\n- `GET /orders` – Retrieve all orders (requires authentication).\n    \n- `GET /orders/:orderId` – Retrieve a specific order.\n    \n- `POST /orders` – Create a new order.\n    \n- `PATCH /orders/:orderId` – Update order details.\n    \n- `DELETE /orders/:orderId` – Delete an order.\n    \n\n### 5\\. Authentication\n\n- `POST /api-clients` – Register a new API client and receive an access token.\n    \n\n---\n\n## 🚀 How to Run Tests in Postman\n\n1. Import the file **MarketEase Store API.postman_collection.json**.\n    \n2. https://simple-grocery-store-api.click\n    \n3. Execute each folder in sequence:  \n    _Status → Products → Cart → Authentication → Orders_\n    \n4. Check the console or response body for results.\n    \n\n---",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30353062"
+	},
+	"item": [
+		{
+			"name": "TC-API-001",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/status",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-002",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/products",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-003",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/products/4643",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"products",
+						"4643"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-004",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/carts",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-005",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/carts/S-eaGpp0v2eUArf4SmDBk",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts",
+						"S-eaGpp0v2eUArf4SmDBk"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-006",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/carts/S-eaGpp0v2eUArf4SmDBk/items",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts",
+						"S-eaGpp0v2eUArf4SmDBk",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-007",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 4643,\r\n  \"quantity\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/carts/S-eaGpp0v2eUArf4SmDBk/items",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts",
+						"S-eaGpp0v2eUArf4SmDBk",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-008",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"quantity\": 5\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/carts/S-eaGpp0v2eUArf4SmDBk/items/518628273",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts",
+						"S-eaGpp0v2eUArf4SmDBk",
+						"items",
+						"518628273"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-009",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"productId\": 4644,\r\n  \"quantity\": 2\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/carts/S-eaGpp0v2eUArf4SmDBk/items/518628273",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts",
+						"S-eaGpp0v2eUArf4SmDBk",
+						"items",
+						"518628273"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-010",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/carts/S-eaGpp0v2eUArf4SmDBk/items/518628273",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"carts",
+						"S-eaGpp0v2eUArf4SmDBk",
+						"items",
+						"518628273"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-011",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "905fdcc66ee93a840d9ad5f191238844b22492962e44bc806c63c5c918ccc4cb",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"clientName\": \"Postman\",\r\n   \"clientEmail\": \"tienphat@gmail.com\"\r\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/api-clients",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api-clients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-012",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "905fdcc66ee93a840d9ad5f191238844b22492962e44bc806c63c5c918ccc4cb",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/orders",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-013a",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-013b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "905fdcc66ee93a840d9ad5f191238844b22492962e44bc806c63c5c918ccc4cb",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://simple-grocery-store-api.click/carts/S-eaGpp0v2eUArf4SmDBk/items",
+					"protocol": "https",
+					"host": [
+						"simple-grocery-store-api",
+						"click"
+					],
+					"path": [
+						"carts",
+						"S-eaGpp0v2eUArf4SmDBk",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-013c",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1ac97562cf057e4a53f234d9c89c9b92da2525735deb70c220ecf7f2d380396e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"cartId\": \"S-eaGpp0v2eUArf4SmDBk\",\r\n  \"customerName\": \"Phat\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://simple-grocery-store-api.click/orders",
+					"protocol": "https",
+					"host": [
+						"simple-grocery-store-api",
+						"click"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-013d",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1ac97562cf057e4a53f234d9c89c9b92da2525735deb70c220ecf7f2d380396e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://simple-grocery-store-api.click/orders/l4Q3vU-ZvG6NK6lVknozq",
+					"protocol": "https",
+					"host": [
+						"simple-grocery-store-api",
+						"click"
+					],
+					"path": [
+						"orders",
+						"l4Q3vU-ZvG6NK6lVknozq"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TC-API-014",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "1ac97562cf057e4a53f234d9c89c9b92da2525735deb70c220ecf7f2d380396e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"cartId\": \"gYPeyrWPSaa4CKaMV-mOS\",\r\n    \"customerName\": \"Goldy\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://simple-grocery-store-api.click/orders",
+					"protocol": "https",
+					"host": [
+						"simple-grocery-store-api",
+						"click"
+					],
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": ""
+		}
+	]
+}
